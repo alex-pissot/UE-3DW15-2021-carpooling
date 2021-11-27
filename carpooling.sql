@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 24 nov. 2021 à 14:52
--- Version du serveur : 5.7.35-0ubuntu0.18.04.2
+-- Généré le : sam. 27 nov. 2021 à 20:29
+-- Version du serveur : 8.0.26-0ubuntu0.20.04.2
 -- Version de PHP : 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cars` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `brand` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `color` varchar(255) NOT NULL,
-  `nbrSlots` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nbrSlots` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `cars`
@@ -48,16 +48,36 @@ INSERT INTO `cars` (`id`, `brand`, `model`, `color`, `nbrSlots`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `classifieds`
+--
+
+CREATE TABLE `classifieds` (
+  `id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `price` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `classifieds`
+--
+
+INSERT INTO `classifieds` (`id`, `title`, `description`, `price`) VALUES
+(1, 'Annonce test', 'Description de l\'annonce test', 40);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `birthday` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `users`
@@ -75,9 +95,9 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `birthday`) VALUES
 --
 
 CREATE TABLE `users_cars` (
-  `user_id` int(11) NOT NULL,
-  `car_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_id` int NOT NULL,
+  `car_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `users_cars`
@@ -100,6 +120,12 @@ ALTER TABLE `cars`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `classifieds`
+--
+ALTER TABLE `classifieds`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -119,13 +145,19 @@ ALTER TABLE `users_cars`
 -- AUTO_INCREMENT pour la table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `classifieds`
+--
+ALTER TABLE `classifieds`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
