@@ -171,7 +171,7 @@ class DataBaseService
  /* -------------------- Cars -----------------*/
 
      /**
-     * Create an car.
+     * Create a car.
      */
     public function createCar(string $brand, string $model, string $color, int $nbrSlots): string
     {
@@ -211,7 +211,7 @@ class DataBaseService
     } */
 
     /**
-     * Update an car.
+     * Update a car.
      */
     public function updateCar(string $id, string $brand, string $model, string $color, int $nbrSlots): bool
     {
@@ -232,7 +232,7 @@ class DataBaseService
     }
 
     /**
-     * Delete an car.
+     * Delete a car.
      */
     public function deleteCar(string $id): bool
     {
@@ -248,4 +248,82 @@ class DataBaseService
         return $isOk;
     }
 
+     /* -------------------- Classifieds -----------------*/
+
+    /**
+     * Create a classified.
+     */
+
+    public function createClassified(string $title, string $description, string $price): string
+    {
+        $classifiedId = '';
+
+        $data = [
+            'title' => $title,
+            'description' => $description,
+            'price' => $price,
+        ];
+        $sql = 'INSERT INTO classifieds (title, description, price) VALUES (:title, :description, :price)';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+        if ($isOk) {
+            $classifiedId = $this->connection->lastInsertId();
+        }
+
+        return $classifiedId;
+    }
+
+    /**
+     * Return all classifieds.
+     */
+    public function getClassifieds(): array
+    {
+        $classifieds = [];
+
+        $sql = 'SELECT * FROM classifieds';
+        $query = $this->connection->query($sql);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($results)) {
+            $classifieds = $results;
+        }
+
+        return $classifieds;
+    }
+
+    /**
+     * Update a classified.
+     */
+    public function updateClassified(string $id, string $title, string $description, string $price): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+            'title' => $title,
+            'description' => $description,
+            'price' => $price,
+        ];
+        $sql = 'UPDATE classifieds SET title = :title, description = :description WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
+
+    /**
+     * Delete a classified.
+     */
+    public function deleteClassified(string $id): bool
+    {
+        $isOk = false;
+
+        $data = [
+            'id' => $id,
+        ];
+        $sql = 'DELETE FROM classifieds WHERE id = :id;';
+        $query = $this->connection->prepare($sql);
+        $isOk = $query->execute($data);
+
+        return $isOk;
+    }
 }

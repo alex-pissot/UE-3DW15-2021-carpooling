@@ -9,7 +9,7 @@ use DateTime;
 class CarsService
 {
     /**
-     * Create or update an car.
+     * Create or update a car.
      */
     public function setCar(?string $id, string $brand, string $model, string $color, int $nbrSlots): string
     {
@@ -58,7 +58,7 @@ class CarsService
     }
 
     /**
-     * Delete an car.
+     * Delete a car.
      */
     public function deleteCar(string $id): bool
     {
