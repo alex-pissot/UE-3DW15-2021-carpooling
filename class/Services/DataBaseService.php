@@ -168,11 +168,11 @@ class DataBaseService
         return $userCars;
     }
 
- /* -------------------- Cars -----------------*/
+    /* -------------------- Cars -----------------*/
 
-     /**
-     * Create a car.
-     */
+    /**
+    * Create a car.
+    */
     public function createCar(string $brand, string $model, string $color, int $nbrSlots): string
     {
         $carId = '';
@@ -248,7 +248,7 @@ class DataBaseService
         return $isOk;
     }
 
-     /* -------------------- Classifieds -----------------*/
+    /* -------------------- Classifieds -----------------*/
 
     /**
      * Create a classified.
