@@ -44,15 +44,14 @@ class CarsService
                 $car->setModel($carDTO['model']);
                 $car->setColor($carDTO['color']);
                 $car->setNbrSlots($carDTO['nbrSlots']);
-                
-                }
-
-              /*  // Get cars of this user :
-                $cars = $this->getUserCars($userDTO['id']);
-                $user->setCars($cars);
-
-                $users[] = $user; */
             }
+
+            /*  // Get cars of this user :
+              $cars = $this->getUserCars($userDTO['id']);
+              $user->setCars($cars);
+
+              $users[] = $user; */
+        }
 
         return $cars;
     }
@@ -109,4 +108,3 @@ class CarsService
         return $userCars;
     } */
 }
-

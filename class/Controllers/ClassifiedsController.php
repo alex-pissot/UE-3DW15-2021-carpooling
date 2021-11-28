@@ -26,19 +26,19 @@ class ClassifiedsController
                 $_POST['price']
             );
 
-         /*   // Create the user classifieds relations :
-            $isOk = true;
-            if (!empty($_POST['classifieds'])) {
-                foreach ($_POST['classifieds'] as $classifiedId) {
-                    $isOk = $classifiedsService->setUserClassified($userId, $classifiedId);
-                }
-            }
-            if ($classifiedId && $isOk) {
-                $html = 'Annonce créée avec succès.';
-            } else {
-                $html = 'Erreur lors de la création de l\'annonce.';
-            } */
-        } 
+            /*   // Create the user classifieds relations :
+               $isOk = true;
+               if (!empty($_POST['classifieds'])) {
+                   foreach ($_POST['classifieds'] as $classifiedId) {
+                       $isOk = $classifiedsService->setUserClassified($userId, $classifiedId);
+                   }
+               }
+               if ($classifiedId && $isOk) {
+                   $html = 'Annonce créée avec succès.';
+               } else {
+                   $html = 'Erreur lors de la création de l\'annonce.';
+               } */
+        }
 
         return $html;
     }
@@ -73,9 +73,9 @@ class ClassifiedsController
         return $html;
     }
 
-     /**
-     * Update the classified.
-     */
+    /**
+    * Update the classified.
+    */
     public function updateClassified(): string
     {
         $html = '';

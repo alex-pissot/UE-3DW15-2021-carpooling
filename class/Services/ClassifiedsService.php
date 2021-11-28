@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace App\Services;
 
 use App\Entities\Classified;
 
-Class ClassifiedsService
+class ClassifiedsService
 {
     /**
      * Create or update a classified.
@@ -41,15 +41,14 @@ Class ClassifiedsService
                 $classifieds->setTitle($classifiedDTO['title']);
                 $classifieds->setDescription($classifiedDTO['description']);
                 $classifieds->setPrice($classifiedDTO['price']);
-                
-                }
-
-              /*  // Get classified of this user :
-                $classified = $this->getUserClassifieds($classifiedDTO['id']);
-                $classified->setClassifieds($classifieds);
-
-                $classifieds[] = $classified; */
             }
+
+            /*  // Get classified of this user :
+              $classified = $this->getUserClassifieds($classifiedDTO['id']);
+              $classified->setClassifieds($classifieds);
+
+              $classifieds[] = $classified; */
+        }
 
         return $classifieds;
     }
@@ -67,13 +66,3 @@ Class ClassifiedsService
         return $isOk;
     }
 }
-
-
-
-
-
-
-
-
-
-

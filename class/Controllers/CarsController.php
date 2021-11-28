@@ -28,19 +28,19 @@ class CarsController
                 $_POST['nbrSlots']
             );
 
-         /*   // Create the user cars relations :
-            $isOk = true;
-            if (!empty($_POST['cars'])) {
-                foreach ($_POST['cars'] as $carId) {
-                    $isOk = $usersService->setUserCar($userId, $carId);
-                }
-            }
-            if ($userId && $isOk) {
-                $html = 'Utilisateur créé avec succès.';
-            } else {
-                $html = 'Erreur lors de la création de l\'utilisateur.';
-            } */
-        } 
+            /*   // Create the user cars relations :
+               $isOk = true;
+               if (!empty($_POST['cars'])) {
+                   foreach ($_POST['cars'] as $carId) {
+                       $isOk = $usersService->setUserCar($userId, $carId);
+                   }
+               }
+               if ($userId && $isOk) {
+                   $html = 'Utilisateur créé avec succès.';
+               } else {
+                   $html = 'Erreur lors de la création de l\'utilisateur.';
+               } */
+        }
 
         return $html;
     }
@@ -109,7 +109,7 @@ class CarsController
     }
 
     /**
-     * Delete a car.
+     * Delete an car.
      */
     public function deleteCar(): string
     {
