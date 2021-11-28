@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : dim. 28 nov. 2021 à 11:06
+-- Généré le : dim. 28 nov. 2021 à 13:34
 -- Version du serveur : 8.0.26-0ubuntu0.20.04.2
 -- Version de PHP : 8.0.10
 
@@ -70,6 +70,26 @@ INSERT INTO `classifieds` (`id`, `title`, `description`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `classifieds_cars`
+--
+
+CREATE TABLE `classifieds_cars` (
+  `classified_id` int NOT NULL,
+  `car_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `classifieds_cars`
+--
+
+INSERT INTO `classifieds_cars` (`classified_id`, `car_id`) VALUES
+(3, 1),
+(4, 3),
+(5, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -111,6 +131,26 @@ INSERT INTO `users_cars` (`user_id`, `car_id`) VALUES
 (2, 3),
 (3, 4);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users_classifieds`
+--
+
+CREATE TABLE `users_classifieds` (
+  `user_id` int NOT NULL,
+  `classified_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `users_classifieds`
+--
+
+INSERT INTO `users_classifieds` (`user_id`, `classified_id`) VALUES
+(1, 3),
+(2, 4),
+(3, 5);
+
 --
 -- Index pour les tables déchargées
 --
@@ -128,6 +168,12 @@ ALTER TABLE `classifieds`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `classifieds_cars`
+--
+ALTER TABLE `classifieds_cars`
+  ADD PRIMARY KEY (`classified_id`,`car_id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -138,6 +184,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_cars`
   ADD PRIMARY KEY (`user_id`,`car_id`);
+
+--
+-- Index pour la table `users_classifieds`
+--
+ALTER TABLE `users_classifieds`
+  ADD PRIMARY KEY (`user_id`,`classified_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
