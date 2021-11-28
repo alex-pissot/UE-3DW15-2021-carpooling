@@ -8,3 +8,9 @@ header, .main-content {
 .links {
     margin-top: 4em;
 }
+.includes {
+    padding: 4em 0;
+}
+.crud-container {
+    padding: 2rem;;
+}
