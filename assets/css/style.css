@@ -1,0 +1,10 @@
+.main-content {
+    margin-top: 4em;
+    padding: 4em 2em;
+}
+header, .main-content {
+    background-color:rgb(208, 224, 238);
+}
+.links {
+    margin-top: 4em;
+}
