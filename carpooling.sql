@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 27 nov. 2021 à 20:29
+-- Généré le : dim. 28 nov. 2021 à 11:06
 -- Version du serveur : 8.0.26-0ubuntu0.20.04.2
 -- Version de PHP : 8.0.10
 
@@ -63,7 +63,9 @@ CREATE TABLE `classifieds` (
 --
 
 INSERT INTO `classifieds` (`id`, `title`, `description`, `price`) VALUES
-(1, 'Annonce test', 'Description de l\'annonce test', 40);
+(3, 'Départ : Paris - Arrivée : Brest', 'Covoiturage au départ de Paris le 21/05/2022 à 10h, arrivée à Brest à 14h30.', 40),
+(4, 'Départ : Toulouse - Arrivée : Marseille', 'Covoiturage au départ de Toulouse le 22/05/2022 à 14h, arrivée à Marseille à 18h.', 19),
+(5, 'Départ : Nice - Arrivée : Lyon', 'Covoiturage au départ de Nice le 23/05/2022 à 9h, arrivée à Lyon à 13h30.', 26);
 
 -- --------------------------------------------------------
 
@@ -151,7 +153,7 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT pour la table `classifieds`
 --
 ALTER TABLE `classifieds`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `users`
